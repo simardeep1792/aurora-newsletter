@@ -48,7 +48,7 @@
         "stats": {
           "title": "Platform Performance Metrics",
           "items": [
-            {"number": "300", "label": "Available Projects"},
+            {"number": "100+", "label": "Active Users"},
             {"number": "0", "label": "Known CVEs in Base Images"},
             {"number": "24/7", "label": "Security Monitoring"},
             {"number": "99.9%", "label": "Platform Availability"}
@@ -274,7 +274,7 @@
         "stats": {
           "title": "Métriques de Performance de la Plateforme",
           "items": [
-            {"number": "300", "label": "Projets Disponibles"},
+            {"number": "100+", "label": "Utilisateurs Actifs"},
             {"number": "0", "label": "CVE Connus dans les Images de Base"},
             {"number": "24/7", "label": "Surveillance de Sécurité"},
             {"number": "99.9%", "label": "Disponibilité de la Plateforme"}

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const fs = require('fs');
-const path = require('path');
+const juice = require('juice');
 
 /**
  * Aurora Newsletter Template Builder
@@ -13,8 +13,9 @@ const path = require('path');
  */
 
 class NewsletterBuilder {
-    constructor() {
-        this.templatePath = './template.html';
+    constructor(isEmail = false) {
+        this.templatePath = isEmail ? './template-email.html' : './template.html';
+        this.isEmail = isEmail;
     }
 
     /**
@@ -46,7 +47,12 @@ class NewsletterBuilder {
      * Generate content sections from JSON data
      */
     generateContentSections(sections) {
-        return sections.map(section => {
+        let sectionsToProcess = sections;
+        if (this.isEmail) {
+            sectionsToProcess = sections.slice(0, 1);
+        }
+
+        let html = sectionsToProcess.map(section => {
             switch (section.type) {
                 case 'main_announcement':
                     return this.generateMainAnnouncement(section);
@@ -68,6 +74,17 @@ class NewsletterBuilder {
                     return this.generateGenericSection(section);
             }
         }).join('\n\n');
+
+        if (this.isEmail) {
+            html += `
+<div class="content-section">
+    <p style="text-align: center;">
+        <a href="./2025-06-gc-artifacts.html">Read the full version of the newsletter</a>
+    </p>
+</div>`;
+        }
+
+        return html;
     }
 
     /**
@@ -318,11 +335,15 @@ class NewsletterBuilder {
     }
 
 
+    inlineCss(html) {
+        return juice(html);
+    }
+
     /**
      * Main build function
      */
     build(contentPath, outputPath) {
-        console.log('🚀 Building Aurora Newsletter...');
+        console.log(`🚀 Building Aurora Newsletter... (Email: ${this.isEmail})`);
         
         // Load content and template
         const data = this.loadContent(contentPath);
@@ -331,10 +352,14 @@ class NewsletterBuilder {
         console.log(`📄 Loaded content: ${data.meta.edition}`);
         
         // Generate newsletter
-        const newsletter = this.replacePlaceholders(template, data);
+        let newsletter = this.replacePlaceholders(template, data);
+
+        if (this.isEmail) {
+            newsletter = this.inlineCss(newsletter);
+        }
         
         // Write output to root directory to maintain asset paths
-        const finalOutputPath = outputPath || `${data.meta.edition}.html`;
+        const finalOutputPath = outputPath || `${data.meta.edition}${this.isEmail ? '-email' : ''}.html`;
         fs.writeFileSync(finalOutputPath, newsletter);
         
         console.log(`✅ Newsletter built successfully: ${finalOutputPath}`);
@@ -345,7 +370,8 @@ class NewsletterBuilder {
             'Title': data.meta.title,
             'English Sections': data.english?.sections?.length || 0,
             'French Sections': data.french?.sections?.length || 0,
-            'Output Size': `${Math.round(newsletter.length / 1024)}KB`
+            'Output Size': `${Math.round(newsletter.length / 1024)}KB`,
+            'Email Version': this.isEmail
         };
         
         console.log('\n📊 Build Summary:');
@@ -358,34 +384,36 @@ class NewsletterBuilder {
 // CLI Usage
 if (require.main === module) {
     const args = process.argv.slice(2);
+    const isEmail = args.includes('--email');
     
     if (args.length === 0 || args.includes('--help') || args.includes('-h')) {
         console.log(`
 Aurora Newsletter Builder
 
 Usage:
-  node build.js <content-file> [output-file]
+  node build.js <content-file> [output-file] [--email]
   node build.js --help
 
 Examples:
-  node build.js content/2024-12-gc-artifacts.json
-  node build.js content/2024-12-gc-artifacts.json output/newsletter.html
+  node build.js content/2025-06-gc-artifacts.json
+  node build.js content/2025-06-gc-artifacts.json --email
 
 Options:
   --help, -h    Show this help message
+  --email       Build the email version of the newsletter
 `);
         process.exit(0);
     }
     
     const contentPath = args[0];
-    const outputPath = args[1];
+    const outputPath = args[1] && !args[1].startsWith('--') ? args[1] : null;
     
     if (!fs.existsSync(contentPath)) {
         console.error(`❌ Content file not found: ${contentPath}`);
         process.exit(1);
     }
     
-    const builder = new NewsletterBuilder();
+    const builder = new NewsletterBuilder(isEmail);
     builder.build(contentPath, outputPath);
 }
 

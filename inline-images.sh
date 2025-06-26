@@ -3,11 +3,11 @@
 set -e
 
 # Input and output
-input_file="newsletter.html"
+input_file="2025-06-gc-artifacts.html"
 output_file="newsletter-inlined.html"
 
 # Confirm required files exist
-for f in background.jpeg canada-logo.svg ssc-text.svg "$input_file"; do
+for f in assets/background.jpeg assets/canada-logo.svg assets/ssc-text.svg "$input_file"; do
   if [ ! -f "$f" ]; then
     echo "❌ Error: $f not found."
     exit 1
@@ -15,9 +15,9 @@ for f in background.jpeg canada-logo.svg ssc-text.svg "$input_file"; do
 done
 
 # Encode files using cat | base64
-bg64=$(cat background.jpeg | base64 | tr -d '\n')
-canada64=$(cat canada-logo.svg | base64 | tr -d '\n')
-ssc64=$(cat ssc-text.svg | base64 | tr -d '\n')
+bg64=$(cat assets/background.jpeg | base64 | tr -d '\n')
+canada64=$(cat assets/canada-logo.svg | base64 | tr -d '\n')
+ssc64=$(cat assets/ssc-text.svg | base64 | tr -d '\n')
 
 # Copy HTML file
 cp "$input_file" "$output_file"
