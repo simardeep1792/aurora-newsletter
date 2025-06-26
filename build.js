@@ -79,7 +79,7 @@ class NewsletterBuilder {
             html += `
 <div class="content-section">
     <p style="text-align: center;">
-        <a href="./2025-06-gc-artifacts.html">Read the full version of the newsletter</a>
+        <a href="https://simardeep1792.github.io/aurora-newsletter/2025-06-gc-artifacts.html">Read the full version of the newsletter</a>
     </p>
 </div>`;
         }
