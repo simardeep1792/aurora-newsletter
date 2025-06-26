@@ -1,0 +1,234 @@
+{
+  "meta": {
+    "edition": "2025-06-gc-artifacts",
+    "title": "Aurora Newsletter - GC Secure Artifacts",
+    "date": "2025-06-26",
+    "generated": "{{GENERATED_DATE}}"
+  },
+  "assets": {
+    "background_image": "background.jpeg",
+    "ssc_logo_path": "ssc-text.svg",
+    "ssc_logo_alt": "Shared Services Canada / Services partagés Canada",
+    "canada_logo_path": "canada-logo.svg",
+    "canada_logo_alt": "Canada"
+  },
+  "header": {
+    "main_title": "Aurora Newsletter",
+    "sub_title": "GC Secure Artifacts",
+    "subtitle": "Strengthening Canada's Software Supply Chain"
+  },
+  "hero": {
+    "title": "Secure • Scalable • Centralized",
+    "description": "Government of Canada Artifact Management Platform"
+  },
+  "footer": {
+    "project_name": "Aurora Project | Projet Aurore",
+    "organization": "Shared Services Canada | Services partagés Canada",
+    "contact_email": "aurora-aurore@ssc-spc.gc.ca",
+    "website_url": "https://aurora.gccloudone.ca",
+    "website_text": "aurora.gccloudone.ca",
+    "tagline": "Let's Deliver for Canadians! | Offrons des résultats aux Canadiens!"
+  },
+  "english": {
+    "sections": [
+      {
+        "type": "main_announcement",
+        "title": "Major Milestone: GC Secure Artifacts Platform Launch",
+        "content": "Shared Services Canada is pleased to announce the successful launch of <strong>GC Secure Artifacts</strong>, now operational for unclassified workloads across all federal departments and agencies. This initiative represents a significant advancement in the Government of Canada's digital transformation and cybersecurity strategy.",
+        "highlight_box": {
+          "title": "Strategic Platform Benefits",
+          "items": [
+            "<strong>Centralized Security Management:</strong> Unified artifact repository with enterprise-grade security controls",
+            "<strong>Zero-Vulnerability Container Images:</strong> Chainguard's security-first approach to base images",
+            "<strong>Cost Optimization:</strong> Shared infrastructure reducing departmental procurement overhead",
+            "<strong>Compliance Framework:</strong> Built-in audit trails and security scanning capabilities",
+            "<strong>Supply Chain Protection:</strong> End-to-end visibility and vulnerability management"
+          ]
+        },
+        "stats": {
+          "title": "Platform Performance Metrics",
+          "items": [
+            {"number": "300", "label": "Available Projects"},
+            {"number": "0", "label": "Known CVEs in Base Images"},
+            {"number": "24/7", "label": "Security Monitoring"},
+            {"number": "99.9%", "label": "Platform Availability"}
+          ]
+        }
+      },
+      {
+        "type": "technology_stack",
+        "title": "Enterprise Technology Stack",
+        "subsections": [
+          {
+            "title": "JFrog Enterprise+ Platform",
+            "content": "The Government of Canada has successfully procured and deployed the <strong>JFrog Platform (Enterprise Plus)</strong>, providing comprehensive DevSecOps capabilities:",
+            "feature_cards": [
+              {
+                "title": "Universal Artifact Repository",
+                "content": "Centralized storage and management for Docker containers, Maven artifacts, NPM packages, NuGet packages, Helm charts, and additional package formats."
+              },
+              {
+                "title": "Advanced Security Scanning",
+                "content": "Integrated JFrog Xray vulnerability detection with automated policy enforcement and continuous security monitoring."
+              },
+              {
+                "title": "Enterprise Access Controls",
+                "content": "Role-based permissions, repository segmentation, and fine-grained access management aligned with government security requirements."
+              },
+              {
+                "title": "Compliance and Audit",
+                "content": "Complete audit trails, build information tracking, and compliance reporting capabilities for regulatory requirements."
+              }
+            ]
+          },
+          {
+            "title": "Chainguard Secure Container Images",
+            "content": "Our strategic partnership with Chainguard delivers the industry's most secure container base images:",
+            "feature_cards": [
+              {
+                "title": "Zero-CVE Architecture",
+                "content": "No known security vulnerabilities in our curated container image collection, providing a secure foundation for application development."
+              },
+              {
+                "title": "Distroless Implementation",
+                "content": "Minimal attack surface achieved by including only essential runtime components, reducing potential security exposure."
+              },
+              {
+                "title": "Cryptographic Signatures",
+                "content": "All images are cryptographically signed with comprehensive Software Bill of Materials (SBOM) for supply chain transparency."
+              },
+              {
+                "title": "Continuous Updates",
+                "content": "Automated security patches and updates ensure images remain current with the latest security improvements."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "container_images",
+        "title": "Available Container Images",
+        "content": "The following secure, zero-CVE container images are available through the centralized registry:",
+        "code_block": [
+          "<strong>Python Runtime:</strong><br>artifacts-artefacts.devops.cloud-nuage.canada.ca/docker-chainguard-remote/ssc-spc.gc.ca/python:3.13.3",
+          "<strong>Java Development Kit:</strong><br>artifacts-artefacts.devops.cloud-nuage.canada.ca/docker-chainguard-remote/ssc-spc.gc.ca/jdk:openjdk-21",
+          "<strong>Java Runtime Environment:</strong><br>artifacts-artefacts.devops.cloud-nuage.canada.ca/docker-chainguard-remote/ssc-spc.gc.ca/jre:openjdk-21",
+          "<strong>Node.js Runtime:</strong><br>artifacts-artefacts.devops.cloud-nuage.canada.ca/docker-chainguard-remote/ssc-spc.gc.ca/node:24.1.0",
+          "<strong>.NET Software Development Kit:</strong><br>artifacts-artefacts.devops.cloud-nuage.canada.ca/docker-chainguard-remote/ssc-spc.gc.ca/dotnet-sdk",
+          "<strong>PowerShell Core:</strong><br>artifacts-artefacts.devops.cloud-nuage.canada.ca/docker-chainguard-remote/ssc-spc.gc.ca/powershell"
+        ]
+      },
+      {
+        "type": "implementation",
+        "title": "Implementation and Onboarding",
+        "content": "Federal departments and agencies can begin leveraging GC Secure Artifacts through the following structured process:",
+        "phases": [
+          {
+            "title": "Phase 1: Access Request and Authentication",
+            "content": "Submit access request through the official Government of Canada onboarding form and configure Single Sign-On (SSO) authentication through the 163ENT Entra ID tenant."
+          },
+          {
+            "title": "Phase 2: Development Environment Integration",
+            "content": "Update existing Dockerfiles to reference secure Chainguard base images and integrate JFrog CLI tools into continuous integration pipelines."
+          },
+          {
+            "title": "Phase 3: Security Configuration",
+            "content": "Implement automated dependency scanning, container vulnerability assessment, and policy-based security controls within development workflows."
+          },
+          {
+            "title": "Phase 4: Production Deployment",
+            "content": "Deploy applications using verified artifacts with continuous monitoring, automated compliance reporting, and incident response procedures."
+          }
+        ]
+      },
+      {
+        "type": "support",
+        "title": "Training and Support Resources",
+        "content": "Comprehensive training and support resources are available to ensure successful platform adoption:",
+        "list_items": [
+          "<strong>JFrog Academy Training:</strong> Self-paced and instructor-led courses for administrators, developers, and DevSecOps teams",
+          "<strong>Technical Documentation:</strong> Complete implementation guides, API references, and best practices documentation",
+          "<strong>Configuration as Code:</strong> Standardized templates and automation scripts for rapid deployment",
+          "<strong>Support Services:</strong> Dedicated technical support and escalation procedures for operational issues"
+        ],
+        "contact": {
+          "text": "For questions or support regarding the GC Secure Artifacts platform, please reach out to",
+          "email": "devops.artifacts-artefacts.devops@ssc-spc.gc.ca"
+        }
+      },
+      {
+        "type": "cta",
+        "title": "Begin Your Secure Development Journey",
+        "content": "Access the GC Secure Artifacts platform and comprehensive documentation resources",
+        "buttons": [
+          {
+            "text": "Access Platform",
+            "url": "https://artifacts-artefacts.devops.cloud-nuage.canada.ca"
+          },
+          {
+            "text": "Technical Documentation",
+            "url": "https://github.com/gccloudone/artifacts-artefacts"
+          }
+        ]
+      },
+      {
+        "type": "aurora",
+        "title": "About Aurora",
+        "content": "Aurora is a cloud-native platform built to support collaboration and innovation across government teams. The infrastructure is open, and you're welcome to explore our code and tools on the [Aurora GitHub](https://github.com/gccloudone). For updates and resources, visit the [Aurora Portal](https://aurora.gccloudone.ca).",
+        "involvement": {
+          "title": "How You Can Get Involved",
+          "items": [
+            "<strong>Join our meetups</strong> to connect with others, share ideas, and learn about cloud-native technologies.",
+            "<strong>Contribute to open source</strong> by improving documentation, suggesting new features, or sharing feedback.",
+            "<strong>Participate in a Technical Advisory Group (TAG)</strong> focused on:",
+            "    • <strong>Architecture</strong> – platform design, scalability, best practices",
+            "    • <strong>Security</strong> – zero trust, defense-in-depth, compliance",
+            "    • <strong>Networking</strong> – service mesh, eBPF, multi-cluster networking"
+          ]
+        },
+        "community": "Stay in the loop by following the <strong>GCXchange Aurora Community</strong> for news, events, and conversations. If you haven't received an invite yet, reply to this message or email us at [aurora-aurore@ssc-spc.gc.ca](mailto:aurora-aurore@ssc-spc.gc.ca) and we'll make sure you're added.",
+        "feedback": {
+          "text": "We'd love your feedback: Please take a minute to fill out this short survey – it helps us understand your team's needs and shape future meetups and support.",
+          "buttons": [
+            {
+              "text": "Take Survey",
+              "url": "https://forms.office.com/r/9gCu6ddw7g"
+            },
+            {
+              "text": "Visit Aurora Portal", 
+              "url": "https://aurora.gccloudone.ca"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "french": {
+    "sections": [
+      {
+        "type": "main_announcement",
+        "title": "Étape Importante : Lancement de la Plateforme d'Artefacts Sécurisés GC",
+        "content": "Services partagés Canada est heureux d'annoncer le lancement réussi des <strong>Artefacts Sécurisés GC</strong>, maintenant opérationnels pour les charges de travail non classifiées dans tous les ministères et organismes fédéraux. Cette initiative représente une avancée significative dans la transformation numérique et la stratégie de cybersécurité du Gouvernement du Canada.",
+        "highlight_box": {
+          "title": "Avantages Stratégiques de la Plateforme",
+          "items": [
+            "<strong>Gestion Centralisée de la Sécurité :</strong> Référentiel d'artefacts unifié avec contrôles de sécurité de niveau entreprise",
+            "<strong>Images de Conteneurs Sans Vulnérabilité :</strong> Approche sécuritaire de Chainguard pour les images de base",
+            "<strong>Optimisation des Coûts :</strong> Infrastructure partagée réduisant les coûts d'approvisionnement ministériels",
+            "<strong>Cadre de Conformité :</strong> Pistes d'audit intégrées et capacités d'analyse de sécurité",
+            "<strong>Protection de la Chaîne d'Approvisionnement :</strong> Visibilité de bout en bout et gestion des vulnérabilités"
+          ]
+        },
+        "stats": {
+          "title": "Métriques de Performance de la Plateforme",
+          "items": [
+            {"number": "300", "label": "Projets Disponibles"},
+            {"number": "0", "label": "CVE Connus dans les Images de Base"},
+            {"number": "24/7", "label": "Surveillance de Sécurité"},
+            {"number": "99.9%", "label": "Disponibilité de la Plateforme"}
+          ]
+        }
+      }
+    ]
+  }
+}
