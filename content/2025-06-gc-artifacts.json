@@ -15,7 +15,7 @@
   "header": {
     "main_title": "Aurora Newsletter",
     "sub_title": "GC Secure Artifacts",
-    "subtitle": "Strengthening Canada's Software Supply Chain"
+    "subtitle": "Strengthening GC's Software Supply Chain"
   },
   "hero": {
     "title": "Secure • Scalable • Centralized",
@@ -180,10 +180,7 @@
           "items": [
             "<strong>Join our meetups</strong> to connect with others, share ideas, and learn about cloud-native technologies.",
             "<strong>Contribute to open source</strong> by improving documentation, suggesting new features, or sharing feedback.",
-            "<strong>Participate in a Technical Advisory Group (TAG)</strong> focused on:",
-            "    • <strong>Architecture</strong> – platform design, scalability, best practices",
-            "    • <strong>Security</strong> – zero trust, defense-in-depth, compliance",
-            "    • <strong>Networking</strong> – service mesh, eBPF, multi-cluster networking"
+            "<strong>Participate in a Technical Advisory Group (TAG)</strong> focused on: <strong>Architecture</strong> (platform design, scalability, best practices), <strong>Security</strong> (zero trust, defense-in-depth, compliance), or <strong>Networking</strong> (service mesh, eBPF, multi-cluster networking)"
           ]
         },
         "community": "Stay in the loop by following the <strong>GCXchange Aurora Community</strong> for news, events, and conversations. If you haven't received an invite yet, reply to this message or email us at [aurora-aurore@ssc-spc.gc.ca](mailto:aurora-aurore@ssc-spc.gc.ca) and we'll make sure you're added.",

@@ -241,25 +241,13 @@ class NewsletterBuilder {
     replacePlaceholders(template, data) {
         let result = template;
 
-        // Basic replacements
+        // Basic replacements matching template placeholders
         const replacements = {
-            'NEWSLETTER_TITLE': data.meta.title,
-            'BACKGROUND_IMAGE': data.assets.background_image,
-            'SSC_LOGO_PATH': data.assets.ssc_logo_path,
-            'SSC_LOGO_ALT': data.assets.ssc_logo_alt,
-            'CANADA_LOGO_PATH': data.assets.canada_logo_path,
-            'CANADA_LOGO_ALT': data.assets.canada_logo_alt,
-            'HEADER_MAIN_TITLE': data.header.main_title,
-            'HEADER_SUB_TITLE': data.header.sub_title,
-            'HEADER_SUBTITLE': data.header.subtitle,
+            'TITLE': data.meta.title,
+            'SUBTITLE': data.header.sub_title,
+            'TAGLINE': data.header.subtitle,
             'HERO_TITLE': data.hero.title,
-            'HERO_DESCRIPTION': data.hero.description,
-            'FOOTER_PROJECT_NAME': data.footer.project_name,
-            'FOOTER_ORGANIZATION': data.footer.organization,
-            'FOOTER_CONTACT_EMAIL': data.footer.contact_email,
-            'FOOTER_WEBSITE_URL': data.footer.website_url,
-            'FOOTER_WEBSITE_TEXT': data.footer.website_text,
-            'FOOTER_TAGLINE': data.footer.tagline
+            'HERO_DESCRIPTION': data.hero.description
         };
 
         // Replace simple placeholders

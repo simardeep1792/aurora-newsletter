@@ -16,9 +16,10 @@ aurora-newsletter/
 ├── build.js                       # Build script (Node.js)
 ├── package.json                   # Project dependencies and scripts
 ├── *.html                         # Generated newsletter files
+├── 2024-12-gc-artifacts.html     # Reference edition (production-ready format)
 ├── background.jpeg                # Background image asset
 ├── canada-logo.svg               # Canada wordmark
-├── ssc-logo.svg                  # SSC logo
+├── ssc-logo.svg                  # SSC logo (deprecated)
 ├── ssc-text.svg                  # SSC text logo
 └── inline-images.sh              # Image processing utility
 ```
@@ -112,12 +113,13 @@ The system supports these predefined section types:
 
 The build process replaces placeholders in `template.html`:
 
-- `{{NEWSLETTER_TITLE}}` - Page title
-- `{{HEADER_MAIN_TITLE}}` - Main newsletter title
+- `{{TITLE}}` - Page title
+- `{{SUBTITLE}}` - Newsletter subtitle (e.g., "GC Secure Artifacts")
+- `{{TAGLINE}}` - Subtitle tagline (e.g., "Strengthening Canada's Software Supply Chain")
 - `{{HERO_TITLE}}` - Hero section heading
+- `{{HERO_DESCRIPTION}}` - Hero section description
 - `{{ENGLISH_CONTENT}}` - Generated English sections
 - `{{FRENCH_CONTENT}}` - Generated French sections
-- Plus metadata, assets, and footer placeholders
 
 ## Bilingual Support
 
@@ -179,6 +181,7 @@ node build.js content/file.json custom-name.html
 - Interactive language toggle implemented with vanilla JavaScript
 - All external links open in new tabs where appropriate
 - Template includes comprehensive email client compatibility styles
+- **Reference File**: `2024-12-gc-artifacts.html` serves as the canonical example of proper formatting and structure
 
 ## File Naming Conventions
 
