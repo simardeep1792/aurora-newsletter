@@ -21,7 +21,6 @@ aurora-newsletter/
 │   ├── ssc-logo.svg             # SSC logo (deprecated)
 │   └── ssc-text.svg             # SSC text logo
 ├── *.html                         # Generated newsletter files
-├── 2024-12-gc-artifacts.html     # Reference edition (production-ready format)
 └── inline-images.sh              # Image processing utility
 ```
 
@@ -187,7 +186,6 @@ node build.js content/file.json custom-name.html
 - Template includes comprehensive email client compatibility styles
 - Improved typography: 16px base font size for better readability
 - Enhanced spacing and visual hierarchy for professional presentation
-- **Reference File**: `2024-12-gc-artifacts.html` serves as the canonical example of proper formatting and structure
 
 ## File Naming Conventions
 
