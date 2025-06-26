@@ -15,12 +15,13 @@ aurora-newsletter/
 │   └── 2025-06-gc-artifacts.json # Current edition content
 ├── build.js                       # Build script (Node.js)
 ├── package.json                   # Project dependencies and scripts
+├── assets/                        # Organized asset files
+│   ├── background.jpeg           # Background image
+│   ├── canada-logo.svg          # Canada wordmark
+│   ├── ssc-logo.svg             # SSC logo (deprecated)
+│   └── ssc-text.svg             # SSC text logo
 ├── *.html                         # Generated newsletter files
 ├── 2024-12-gc-artifacts.html     # Reference edition (production-ready format)
-├── background.jpeg                # Background image asset
-├── canada-logo.svg               # Canada wordmark
-├── ssc-logo.svg                  # SSC logo (deprecated)
-├── ssc-text.svg                  # SSC text logo
 └── inline-images.sh              # Image processing utility
 ```
 
@@ -100,6 +101,7 @@ The system supports these predefined section types:
 - **implementation**: Phase-based implementation guides
 - **support**: Resource lists with contact information
 - **cta**: Call-to-action buttons and links
+- **ml_capabilities**: JFrog ML features with resources and links
 - **aurora**: Special formatting for Aurora project content
 
 ### Content Guidelines
@@ -115,7 +117,7 @@ The build process replaces placeholders in `template.html`:
 
 - `{{TITLE}}` - Page title
 - `{{SUBTITLE}}` - Newsletter subtitle (e.g., "GC Secure Artifacts")
-- `{{TAGLINE}}` - Subtitle tagline (e.g., "Strengthening Canada's Software Supply Chain")
+- `{{TAGLINE}}` - Subtitle tagline (e.g., "Strengthening GC's Software Supply Chain")
 - `{{HERO_TITLE}}` - Hero section heading
 - `{{HERO_DESCRIPTION}}` - Hero section description
 - `{{ENGLISH_CONTENT}}` - Generated English sections
@@ -159,6 +161,8 @@ The template maintains Aurora platform identity within Government of Canada visu
    ```
 3. Add the case to the switch statement in `generateContentSections()`
 
+Example: The `ml_capabilities` section includes recording links, feature lists, additional content paragraphs, and resource links with automatic `target="_blank"` for external URLs.
+
 ### Modifying Styles
 
 Edit the CSS within `template.html`. Test changes across different screen sizes and ensure compliance with Government of Canada branding guidelines.
@@ -177,10 +181,12 @@ node build.js content/file.json custom-name.html
 
 - Generated HTML is self-contained with inline CSS and JavaScript
 - Background images use fixed 970px width to prevent scaling issues on various screen sizes
-- Responsive design works down to 600px viewport width
+- Responsive design works down to 600px viewport width with optimized mobile typography
 - Interactive language toggle implemented with vanilla JavaScript
 - All external links open in new tabs where appropriate
 - Template includes comprehensive email client compatibility styles
+- Improved typography: 16px base font size for better readability
+- Enhanced spacing and visual hierarchy for professional presentation
 - **Reference File**: `2024-12-gc-artifacts.html` serves as the canonical example of proper formatting and structure
 
 ## File Naming Conventions

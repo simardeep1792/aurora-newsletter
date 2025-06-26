@@ -62,6 +62,8 @@ class NewsletterBuilder {
                     return this.generateCTA(section);
                 case 'aurora':
                     return this.generateAurora(section);
+                case 'ml_capabilities':
+                    return this.generateMLCapabilities(section);
                 default:
                     return this.generateGenericSection(section);
             }
@@ -215,6 +217,49 @@ class NewsletterBuilder {
         ).join('\n        ')}
     </div>
 </div>`;
+        return html;
+    }
+
+    /**
+     * Generate ML capabilities section
+     */
+    generateMLCapabilities(section) {
+        let html = `<div class="content-section">
+    <h2>${section.title}</h2>
+    <p>${section.content}</p>`;
+
+        if (section.recording_links) {
+            html += `\n    <ul>
+        ${section.recording_links.map(link => 
+            `<li><strong>${link.text}:</strong> <a href="${link.url}" target="_blank">${link.title}</a></li>`
+        ).join('\n        ')}
+    </ul>`;
+        }
+
+        if (section.features) {
+            html += `\n    <p>${section.features.intro}</p>
+    <ul>
+        ${section.features.items.map(item => `<li>${item}</li>`).join('\n        ')}
+    </ul>`;
+        }
+
+        if (section.additional_content) {
+            section.additional_content.forEach(content => {
+                html += `\n    <p>${content}</p>`;
+            });
+        }
+
+        if (section.resources) {
+            html += `\n    <h3>${section.resources.title}</h3>
+    <p>${section.resources.intro}</p>
+    <ul>
+        ${section.resources.links.map(link => 
+            `<li><a href="${link.url}" target="_blank">${link.text}</a></li>`
+        ).join('\n        ')}
+    </ul>`;
+        }
+
+        html += `\n</div>`;
         return html;
     }
 
