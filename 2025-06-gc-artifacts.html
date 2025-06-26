@@ -29,9 +29,9 @@
             max-width: 800px;
             margin: 0 auto;
             background-color: transparent;
-            border-radius: 10px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.08);
         }
 
         /* Header Section */
@@ -172,27 +172,32 @@
 
         .lang-button {
             display: inline-block;
-            padding: 12px 25px;
-            margin: 0 10px;
-            background-color: #2A283C;
+            padding: 14px 28px;
+            margin: 0 8px;
+            background: rgba(42, 40, 60, 0.9);
             color: white;
             text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
+            border-radius: 10px;
+            font-weight: 600;
             font-size: 16px;
-            transition: background-color 0.3s;
-            border: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             cursor: pointer;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
         .lang-button:hover {
-            background-color: #515068;
+            background: rgba(81, 80, 104, 0.9);
             text-decoration: none;
             color: white;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
 
         .lang-button.active {
-            background-color: #C91CB3;
+            background: linear-gradient(135deg, #C91CB3 0%, #B017A8 100%);
+            box-shadow: 0 4px 16px rgba(201, 28, 179, 0.3);
         }
 
         .content-section {
@@ -246,10 +251,24 @@
         .highlight-box {
             background: linear-gradient(135deg, #C91CB3, #4530A8);
             color: white;
-            padding: 25px;
-            border-radius: 10px;
-            margin: 25px 0;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 32px;
+            border-radius: 20px;
+            margin: 30px 0;
+            box-shadow: 0 8px 32px rgba(201, 28, 179, 0.2), 0 2px 8px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+            border-radius: 20px;
+            pointer-events: none;
         }
 
         .highlight-box h3 {
@@ -280,11 +299,19 @@
         }
 
         .feature-card {
-            background-color: #f8f9fa;
-            padding: 25px;
-            border-radius: 8px;
-            border-left: 5px solid #C91CB3;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 28px;
+            border-radius: 16px;
+            border-left: 4px solid #C91CB3;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.08);
         }
 
         .feature-card h4 {
@@ -301,12 +328,14 @@
         }
 
         .code-block {
-            background-color: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-            border: 1px solid #e9ecef;
-            font-family: 'Courier New', monospace;
+            background: rgba(248, 249, 250, 0.9);
+            padding: 24px;
+            border-radius: 12px;
+            margin: 24px 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Courier New', monospace;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
         }
 
         .code-block p {
@@ -324,12 +353,27 @@
         }
 
         .cta-section {
-            background-color: #2A283C;
+            background: linear-gradient(135deg, #2A283C 0%, #1f1e2e 100%);
             color: white;
-            padding: 30px;
-            border-radius: 10px;
+            padding: 40px;
+            border-radius: 20px;
             text-align: center;
-            margin: 30px 0;
+            margin: 40px 0;
+            box-shadow: 0 8px 32px rgba(42, 40, 60, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+            border-radius: 20px;
+            pointer-events: none;
         }
 
         .cta-section h3 {
@@ -339,21 +383,42 @@
 
         .cta-button {
             display: inline-block;
-            background-color: #C91CB3;
+            background: linear-gradient(135deg, #C91CB3 0%, #B017A8 100%);
             color: white;
-            padding: 15px 30px;
+            padding: 16px 32px;
             text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 18px;
-            margin: 10px;
-            transition: background-color 0.3s;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 17px;
+            margin: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 16px rgba(201, 28, 179, 0.3), 0 1px 4px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+            transition: opacity 0.3s ease;
+            opacity: 0;
         }
 
         .cta-button:hover {
-            background-color: #4530A8;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 24px rgba(201, 28, 179, 0.4), 0 2px 8px rgba(0,0,0,0.15);
             text-decoration: none;
             color: white;
+        }
+
+        .cta-button:hover::before {
+            opacity: 1;
         }
 
         .footer {
@@ -387,11 +452,13 @@
         }
 
         .stats-section {
-            background-color: #f8f9fa;
-            padding: 25px;
-            border-radius: 8px;
-            margin: 25px 0;
-            border: 1px solid #e9ecef;
+            background: rgba(248, 249, 250, 0.9);
+            padding: 32px;
+            border-radius: 16px;
+            margin: 30px 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
         }
 
         .stats-grid {
@@ -403,10 +470,18 @@
 
         .stat-item {
             text-align: center;
-            padding: 20px;
-            background-color: white;
-            border-radius: 6px;
-            border: 1px solid #dee2e6;
+            padding: 24px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
         }
 
         .stat-number {
@@ -495,12 +570,14 @@
         }
 
         .aurora-cta {
-            background: rgba(255,255,255,0.1);
-            padding: 25px;
-            border-radius: 10px;
-            margin-top: 30px;
+            background: rgba(255,255,255,0.08);
+            padding: 32px;
+            border-radius: 16px;
+            margin-top: 36px;
             text-align: center;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
         }
 
         .aurora-cta p {
@@ -510,18 +587,22 @@
 
         .aurora-cta a {
             display: inline-block;
-            background: #6C63FF;
+            background: linear-gradient(135deg, #6C63FF 0%, #5A52E5 100%);
             color: white;
-            padding: 12px 25px;
-            border-radius: 8px;
+            padding: 14px 28px;
+            border-radius: 12px;
             text-decoration: none;
-            font-weight: bold;
-            margin: 5px;
-            transition: all 0.3s ease;
+            font-weight: 600;
+            margin: 8px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 16px rgba(108, 99, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .aurora-cta a:hover {
-            background: #2A283C;
+            background: linear-gradient(135deg, #5A52E5 0%, #2A283C 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 24px rgba(108, 99, 255, 0.4);
         }
 
         /* Responsive */
@@ -566,7 +647,22 @@
 
             .lang-button {
                 display: block;
-                margin: 5px 0;
+                margin: 8px 0;
+                padding: 12px 24px;
+            }
+
+            .feature-card {
+                padding: 24px;
+            }
+
+            .highlight-box {
+                padding: 28px;
+                border-radius: 16px;
+            }
+
+            .cta-button {
+                padding: 14px 28px;
+                font-size: 16px;
             }
 
             .aurora-section {

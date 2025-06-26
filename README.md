@@ -20,7 +20,7 @@ aurora-newsletter/
 │   ├── canada-logo.svg          # Canada wordmark
 │   ├── ssc-logo.svg             # SSC logo (deprecated)
 │   └── ssc-text.svg             # SSC text logo
-├── *.html                         # Generated newsletter files
+├── 2025-06-gc-artifacts.html     # Current generated newsletter
 └── inline-images.sh              # Image processing utility
 ```
 
@@ -176,16 +176,6 @@ node build.js --help
 node build.js content/file.json custom-name.html
 ```
 
-## Technical Notes
-
-- Generated HTML is self-contained with inline CSS and JavaScript
-- Background images use fixed 970px width to prevent scaling issues on various screen sizes
-- Responsive design works down to 600px viewport width with optimized mobile typography
-- Interactive language toggle implemented with vanilla JavaScript
-- All external links open in new tabs where appropriate
-- Template includes comprehensive email client compatibility styles
-- Improved typography: 16px base font size for better readability
-- Enhanced spacing and visual hierarchy for professional presentation
 
 ## File Naming Conventions
 
